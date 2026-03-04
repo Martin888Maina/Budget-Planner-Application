@@ -6,6 +6,11 @@ const { errorHandler } = require('./middleware/errorHandler');
 
 // route imports
 const authRoutes = require('./routes/authRoutes');
+const budgetRoutes = require('./routes/budgetRoutes');
+const transactionRoutes = require('./routes/transactionRoutes');
+const incomeRoutes = require('./routes/incomeRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
+const reportRoutes = require('./routes/reportRoutes');
 
 const app = express();
 
@@ -24,6 +29,11 @@ app.use(cookieParser());
 
 // routes
 app.use('/api/auth', authRoutes);
+app.use('/api/budgets', budgetRoutes);
+app.use('/api/transactions', transactionRoutes);
+app.use('/api/incomes', incomeRoutes);
+app.use('/api/categories', categoryRoutes);
+app.use('/api/reports', reportRoutes);
 
 // simple health check
 app.get('/api/health', (req, res) => {
